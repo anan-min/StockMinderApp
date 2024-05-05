@@ -6,6 +6,7 @@ public partial class LoginPage : ContentPage
 	{
 		InitializeComponent();
 	}
+
     protected override void OnAppearing()
     {
         base.OnAppearing();

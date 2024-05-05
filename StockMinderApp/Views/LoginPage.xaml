@@ -3,10 +3,70 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="StockMinderApp.Views.LoginPage"
              Title="LoginPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="This is login page"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <Grid BackgroundColor="white">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Label Background="white" Grid.Row="0" HeightRequest="80" />
+
+        <Grid Background="#5256fe" Grid.Row="1" Margin="30, 40">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80" />
+
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+
+                <RowDefinition Height="*" />
+
+                <RowDefinition Height="80" />
+            </Grid.RowDefinitions>
+
+            <Label  Text="Login"
+                    Grid.Row="0"
+                    FontSize="32"
+                    FontAttributes="Bold"
+                    HorizontalOptions="CenterAndExpand"
+                    TextColor="white"
+                    Margin="10, 15, 10, 15"/>
+
+            <Label Grid.Row="1"
+                   TextColor="white"
+                   FontSize="16"
+                   Text="username"
+                   Margin="20, 0, 20, 0"
+                   Padding="0, 20, 0 , 0"/>
+
+            <Entry  Grid.Row="2"
+                    Background="white"
+                    Margin="20, 0, 20, 0"/>
+
+
+            <Label Grid.Row="3"
+                   TextColor="white"
+                   FontSize="16"
+                   Text="password"
+                   Margin="20, 0, 20, 0"
+                   Padding="0, 20, 0 ,0"/>
+            
+            <Entry  Grid.Row="4"
+                    Background="white"
+                    Margin="20, 0, 20, 0"/>
+
+
+            <Button Grid.Row="8"
+                    Text="SUBMIT"
+                    FontSize="24"
+                    FontAttributes="Bold"
+                    TextColor="#5256fe"
+                    BackgroundColor="white"
+                    Margin="15,0,15,15"/>
+  
+        </Grid>
+
+    </Grid>
 </ContentPage>

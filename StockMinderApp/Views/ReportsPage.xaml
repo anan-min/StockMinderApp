@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StockMinderApp.Views.ReportsPage"
+             Title="ReportsPage">
+        <Grid BackgroundColor="#F2F2F2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <!-- Label on top -->
+            <Label Background="#5256fe" HeightRequest="80" />
+
+            <!-- ScrollView below the Label -->
+            <ScrollView Grid.Row="1" Padding="20">
+                <CollectionView x:Name="reportCollectionView">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <VerticalStackLayout HeightRequest="120"
+                                                 WidthRequest="320"
+                                                 BackgroundColor="white"
+                                                 Margin="20">
+                                <Label Text="{Binding report_title}"
+                                       FontSize="10"
+                                       FontAttributes="Bold"
+                                       Padding="10, 10, 0, 10"
+                                       />
+                                <Label Text="This report provides an overview of the current stock status for all products in the inventory. It includes the total number of products, the total stock value, and a list of the top selling products. The report also highlights any products with low stock levels that may require attention."
+                                       FontSize="8" Padding="10"/>
+                                <Label Text="{Binding date_time}"
+                                       FontSize="6" Padding="10"/>
+                            </VerticalStackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </ScrollView>
+        </Grid>
+</ContentPage>

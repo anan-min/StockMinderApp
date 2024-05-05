@@ -1,4 +1,5 @@
 ﻿using System;
+
 namespace StockMinderApp.Data
 {
 	public class DataBaseConstants

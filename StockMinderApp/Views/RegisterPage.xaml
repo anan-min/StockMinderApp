@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StockMinderApp.Views.RegisterPage"
+             Title="RegisterPage">
+
+
+        <Grid Background="#5256fe" Grid.Row="1" Margin="50, 60">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80" />
+
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+
+
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+
+
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+
+                <RowDefinition Height="*" />
+
+                <RowDefinition Height="80" />
+            </Grid.RowDefinitions>
+
+            <Label  Text="Register"
+                    Grid.Row="0"
+                    FontSize="32"
+                    FontAttributes="Bold"
+                    HorizontalOptions="CenterAndExpand"
+                    TextColor="white"
+                    Margin="10, 15, 10, 15"/>
+
+            <Label Grid.Row="1"
+                   TextColor="white"
+                   FontSize="16"
+                   Text="Employee id"
+                   Margin="20, 0, 20, 0"
+                   Padding="0, 12, 0 , 0"/>
+            <Entry  Grid.Row="2"
+                    Background="white"
+                    Margin="20, 0, 20, 5"
+                    />
+
+
+            
+            <Label Grid.Row="3"
+                   TextColor="white"
+                   FontSize="16"
+                   Text="Username"
+                   Margin="20, 0, 20, 0"
+                   Padding="0, 12, 0 , 0"/>
+
+            <Entry  Grid.Row="4"
+                    Background="white"
+                    Margin="20, 0, 20, 5"/>
+
+
+            <Label Grid.Row="5"
+                   TextColor="white"
+                   FontSize="16"
+                   Text="Password"
+                   Margin="20, 0, 20, 0"
+                   Padding="0, 12, 0 ,0"/>
+
+            <Entry  Grid.Row="6"
+                    Background="white"
+                    Margin="20, 0, 20, 5"
+                    IsPassword="True"/>
+
+
+            
+            <Label Grid.Row="7"
+                   TextColor="white"
+                   FontSize="16"
+                   Text="Email"
+                   Margin="20, 0, 20, 0"
+                   Padding="0, 12, 0 ,10"/>
+
+            <Entry  Grid.Row="8"
+                    Background="white"
+                    Margin="20, 0, 20, 5"/>
+
+
+            <Label Grid.Row="9"
+                   TextColor="white"
+                   FontSize="16"
+                   Text="Department"
+                   Margin="20, 0, 20, 0"
+                   Padding="0, 12, 0 ,10"/>
+
+            <Entry  Grid.Row="10"
+                    Background="white"
+                    Margin="20, 0, 20, 5"/>
+
+
+            <Button Grid.Row="12"
+                    Text="SUBMIT"
+                    FontSize="24"
+                    FontAttributes="Bold"
+                    TextColor="#5256fe"
+                    BackgroundColor="White"
+                    Margin="20,10,20,15"
+                    />
+        </Grid>
+
+</ContentPage>

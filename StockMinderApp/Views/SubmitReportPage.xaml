@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StockMinderApp.Views.SubmitReportPage"
+             Title="SubmitReportPage">
+
+        <Frame Grid.Row="1"
+               BackgroundColor="#F2F2F2"
+               VerticalOptions="FillAndExpand"
+               HorizontalOptions="FillAndExpand"
+               CornerRadius="0"
+               Padding="45"
+               >
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="300" />
+
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="60" />
+
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0"
+                       Text="Report Submission"
+                       TextColor="#5256fe"
+                       FontSize="24"
+                       FontAttributes="Bold"
+                       HorizontalOptions="StartAndExpand"
+                       VerticalOptions="EndAndExpand"
+                       />
+
+                <Label Grid.Row="1"
+                       Text="Report title"
+                       TextColor="Black"
+                       FontAttributes="Bold"
+                       FontSize="16"
+                       Margin="0, 15, 0, 8"
+                       VerticalOptions="EndAndExpand"/>
+
+                <Entry Grid.Row="2"
+                       BackgroundColor="white"
+                       HorizontalOptions="FillAndExpand"/>
+
+
+                <Label Grid.Row="3"
+                       Text="Report content"
+                       TextColor="Black"
+                       FontAttributes="Bold"
+                       FontSize="16"
+                       Margin="0, 10, 0, 5"
+                       VerticalOptions="EndAndExpand"/>
+
+                <Entry Grid.Row="4"
+                       BackgroundColor="white"
+                       />
+
+                <Button Grid.Row="6"
+                        Text="Submit Report"
+                        TextColor="white"
+                        FontAttributes="Bold"
+                        FontSize="20"
+                        Background="#5256fe"
+                        VerticalOptions="StartAndExpand"
+                        />
+            </Grid>
+        </Frame>
+</ContentPage>
