@@ -14,5 +14,6 @@ namespace StockMinderApp.Data
             public string image_path { get; set; }
 
     }
+
 }
 

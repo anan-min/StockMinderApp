@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StockMinderApp.Views.AddProductPage"
+             Title="AddProductPage">
+    <VerticalStackLayout BackgroundColor="#F2F2F2"
+                         Padding="20">
+        <Label Text="Add Product"
+               HorizontalOptions="StartAndExpand"
+               FontSize="24"
+               FontAttributes="Bold"
+               TextColor="#5256fe"/>
+        <Image      HeightRequest="250"
+                    WidthRequest="336"
+                    BackgroundColor="orange"
+                    Source="dotnet_bot.png"
+                    Aspect="AspectFill"
+                    Margin="8"/>
+        <Button Text="Add Image"
+                FontAttributes="Bold"
+                FontSize="16"
+                Margin="7"
+                CornerRadius="0"
+                BackgroundColor="#5256fe"/>
+
+        <Entry HeightRequest="35" Margin="7" BackgroundColor="white"
+               Text="Add Product id ... "/>
+        <Entry HeightRequest="35" Margin="7" BackgroundColor="white"
+               Text="Add Product Name ... "/>
+        <Entry HeightRequest="35" Margin="7" BackgroundColor="white"
+               Text="Add current Stock Level ... "/>
+        <Entry HeightRequest="35" Margin="7" BackgroundColor="white"
+               Text="Add Stock Location ... "/>
+        <Entry HeightRequest="65" Margin="7" BackgroundColor="white"
+               Text="Add Product description ... "/>
+        <Button HeightRequest="65" Margin="7"
+                Text="SUBMIT PRODUCT"
+                FontSize="18"
+                FontAttributes="Bold"
+                CornerRadius="0"
+                BackgroundColor="#5256fe"/>
+    </VerticalStackLayout>
+</ContentPage>

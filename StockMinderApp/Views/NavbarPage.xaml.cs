@@ -60,7 +60,20 @@ public partial class NavbarPage : ContentPage
 
     void AddItemClicked(System.Object sender, System.EventArgs e)
     {
-
+        if (App.UserSession.IsLoggedIn)
+        {
+            var navPage = App.Current.MainPage as FlyoutTemplate;
+            navPage.Detail = new NavigationPage(new Views.AddProductPage())
+            {
+                BarBackground = Color.FromHex("#5256fe")
+            };
+            
+        }
+        else
+        {
+            var navPage = App.Current.MainPage as FlyoutTemplate;
+            navPage.Detail = new NavigationPage(new Views.LoginPage());
+        }
     }
 
 

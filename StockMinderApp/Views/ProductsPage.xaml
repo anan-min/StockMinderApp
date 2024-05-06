@@ -3,10 +3,72 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="StockMinderApp.Views.ProductsPage"
              Title="ProductsPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="This is Products Page"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+
+
+            <!-- ScrollView below the Label -->
+            <ScrollView Grid.Row="1" Padding="20" BackgroundColor="#F2F2F2">
+                <CollectionView x:Name="productCollectionView">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+
+                            <HorizontalStackLayout HeightRequest="120"
+                                                 WidthRequest="340"
+                                                 BackgroundColor="white"
+                                                 Margin="20">
+
+                                <Image  HeightRequest="80"
+                                        WidthRequest="80"
+                                        BackgroundColor="orange"
+                                        Source="dotnet_bot.png"
+                                        Aspect="AspectFill"
+                                        Margin="20,20,0,20"/>
+
+                                <VerticalStackLayout HeightRequest="75"
+                                                 WidthRequest="200"
+                                                 BackgroundColor="white"
+                                                 Margin="10"
+                                                 >
+                         
+                                        <Label Text="{Binding product_name}"
+                                               FontSize="12"
+                                               FontAttributes="Bold"
+                                               Padding="10, 0 ,10 ,5"/>
+
+                                        <HorizontalStackLayout Padding="10, 0 ,10, 0">
+                                            <Label Text="Product ID: "
+                                                   FontSize="9"
+                                                   FontAttributes="Bold"/>
+                                            <Label Text="{Binding product_id}"
+                                                   FontSize="9"/>
+                                        </HorizontalStackLayout>
+
+                                        <HorizontalStackLayout Padding="10, 0 ,10, 0">
+                                            <Label Text="Description: "
+                                                   FontSize="8"
+                                                   FontAttributes="Bold"/>
+                                            <Label Text="{Binding product_description}"
+                                                   FontSize="9" />
+                                        </HorizontalStackLayout>
+
+                                        <HorizontalStackLayout Padding="10, 0 ,10, 0">
+                                            <Label Text="Stock Level: "
+                                                   FontSize="9"
+                                                   FontAttributes="Bold"/>
+                                            <Label Text="{Binding stock_level}"
+                                                   FontSize="9" />
+                                        </HorizontalStackLayout>
+
+                                        <HorizontalStackLayout Padding="10, 0 ,10, 0">
+                                            <Label Text="Stock Location: "
+                                                   FontSize="9"
+                                                   FontAttributes="Bold"/>
+                                            <Label Text="{Binding stock_location}"
+                                                   FontSize="9" />
+                                        </HorizontalStackLayout>
+                                </VerticalStackLayout>
+                            </HorizontalStackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </ScrollView>
 </ContentPage>

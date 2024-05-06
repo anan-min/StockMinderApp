@@ -60,6 +60,38 @@ namespace StockMinderApp.Data
                 .FirstOrDefaultAsync();
 
         }
+
+
+        public static List<Product> GenerateDummyProducts()
+        {
+            List<Product> products = new List<Product>();
+
+            for (int i = 0; i < 10; i++)
+            {
+                string productId = $"P-{DateTime.Now.Year}-{"0000" + i}-{"SUPR"}-{"HDS"}-{"WDGTX5000"}";
+                string productName = $"Product {i + 1}";
+                int stockLevel = new Random().Next(1, 1000);
+                string stockLocation = $"A-{i + 1}-B";
+                string productDescription = $"Description for Product {i + 1}";
+                string imagePath = $"path_to_image_{i}.png";
+
+                Product product = new Product
+                {
+                    product_id = productId,
+                    product_name = productName,
+                    stock_level = stockLevel,
+                    stock_location = stockLocation,
+                    product_description = productDescription,
+                    image_path = imagePath
+                };
+
+                products.Add(product);
+            }
+
+            return products;
+        }
+
+
     }
 }
 
