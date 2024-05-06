@@ -28,17 +28,6 @@ namespace StockMinderApp.Data
         private static List<User> GenerateUsers()
         {
             List<User> users = new List<User>();
-
-            //for (int i = 0; i < 10; i++)
-            //{
-            //    reports.Add(new Report
-            //    {
-            //        report_title = $"Report {i + 1}",
-            //        report_content = $"Content for Report {i + 1}",
-            //        date_time = DateTime.Now.AddDays(-i)
-            //    });
-            //}
-
             return users;
         }
 
@@ -61,6 +50,55 @@ namespace StockMinderApp.Data
         }
 
 
+        public async Task<bool> IsEmployeeIdAlreadyExists(string EmployeeId)
+        {;
+            await Init();
+            var user = await _database.Table<User>()
+                              .Where(u => u.employee_id == EmployeeId)
+                              .FirstOrDefaultAsync();
+
+            return user != null;
+        }
+
+
+        public async Task<bool> IsUsernameAlreadyExists(String Username)
+        {
+            await Init();
+            var user = await _database.Table<User>()
+                              .Where(u => u.username == Username)
+                              .FirstOrDefaultAsync();
+
+            return user != null;
+        }
+
+
+        public async Task<bool> IsEmailAlreadyExists(String Email)
+        {
+            await Init();
+            var user = await _database.Table<User>()
+                              .Where(u => u.email == Email)
+                              .FirstOrDefaultAsync();
+
+            return user != null;
+        }
+
+
+        public async Task<User> InsertUserAsync(string employeeid, string username, string password, string email, string department)
+        {
+            await Init();
+            User user = (new User
+            {
+                employee_id = employeeid,
+                username = username,
+                password = password,
+                email = email,
+                department = department,
+            });
+
+            await _database.InsertAsync(user);
+            return user;
+
+        }
     }
 }
 

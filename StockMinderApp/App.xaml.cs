@@ -4,7 +4,8 @@ using Data;
 public partial class App : Application
 {
 	public static UserSession UserSession { get; } = new UserSession();
-    public static ReportDatabase reportDatabase = new ReportDatabase();
+    public static ReportDatabase reportDatabase = new();
+    public static UserDatabase userDatabase = new();
 	public App()
 	{
 		InitializeComponent();
