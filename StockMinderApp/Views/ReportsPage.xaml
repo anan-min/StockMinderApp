@@ -10,7 +10,6 @@
             </Grid.RowDefinitions>
 
             <!-- Label on top -->
-            <Label Background="#5256fe" HeightRequest="80" />
 
             <!-- ScrollView below the Label -->
             <ScrollView Grid.Row="1" Padding="20">

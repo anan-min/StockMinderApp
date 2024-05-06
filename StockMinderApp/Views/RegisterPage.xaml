@@ -46,6 +46,7 @@
                    Margin="20, 0, 20, 0"
                    Padding="0, 12, 0 , 0"/>
             <Entry  Grid.Row="2"
+                    x:Name="IdEntry"
                     Background="white"
                     Margin="20, 0, 20, 5"
                     />
@@ -60,6 +61,7 @@
                    Padding="0, 12, 0 , 0"/>
 
             <Entry  Grid.Row="4"
+                    x:Name="UsernameEntry"
                     Background="white"
                     Margin="20, 0, 20, 5"/>
 
@@ -72,6 +74,7 @@
                    Padding="0, 12, 0 ,0"/>
 
             <Entry  Grid.Row="6"
+                    x:Name="PasswordEntry"
                     Background="white"
                     Margin="20, 0, 20, 5"
                     IsPassword="True"/>
@@ -86,6 +89,7 @@
                    Padding="0, 12, 0 ,10"/>
 
             <Entry  Grid.Row="8"
+                    x:Name="EmailEntry"
                     Background="white"
                     Margin="20, 0, 20, 5"/>
 
@@ -98,12 +102,14 @@
                    Padding="0, 12, 0 ,10"/>
 
             <Entry  Grid.Row="10"
+                    x:Name="DepartmentEntry"
                     Background="white"
                     Margin="20, 0, 20, 5"/>
 
 
             <Button Grid.Row="12"
                     Text="SUBMIT"
+                    Clicked="SubmitButtonClicked"
                     FontSize="24"
                     FontAttributes="Bold"
                     TextColor="#5256fe"

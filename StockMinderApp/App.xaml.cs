@@ -4,11 +4,13 @@ using Data;
 public partial class App : Application
 {
 	public static UserSession UserSession { get; } = new UserSession();
+    public static ReportDatabase reportDatabase = new ReportDatabase();
 	public App()
 	{
 		InitializeComponent();
         App.ApplyGlobalStyles();
-        MainPage = new Views.FlyoutTemplate();
+        //MainPage = new Views.FlyoutTemplate();
+        MainPage = new NavigationPage(new Views.RegisterPage());
 	}
 
     private static void ApplyGlobalStyles()
@@ -26,5 +28,8 @@ public partial class App : Application
             navigationStyle
         };
     }
+
+
+    
 }
 

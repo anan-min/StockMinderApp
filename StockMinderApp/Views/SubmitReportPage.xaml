@@ -45,6 +45,7 @@
                        VerticalOptions="EndAndExpand"/>
 
                 <Entry Grid.Row="2"
+                       x:Name="ReportTitleEntry"
                        BackgroundColor="white"
                        HorizontalOptions="FillAndExpand"/>
 
@@ -58,10 +59,12 @@
                        VerticalOptions="EndAndExpand"/>
 
                 <Entry Grid.Row="4"
+                       x:Name="ReportContentEntry"
                        BackgroundColor="white"
                        />
 
                 <Button Grid.Row="6"
+                        Clicked="SubmitButtonClicked"
                         Text="Submit Report"
                         TextColor="white"
                         FontAttributes="Bold"

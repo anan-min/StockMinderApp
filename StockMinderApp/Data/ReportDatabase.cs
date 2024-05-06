@@ -7,6 +7,7 @@ namespace StockMinderApp.Data
 	{
 		public ReportDatabase()
 		{
+
 		}
 
 
@@ -61,7 +62,34 @@ namespace StockMinderApp.Data
                 .FirstOrDefaultAsync();
         }
 
+        public async Task<Report> InsertReportAsync(string ReportTitle, string ReportContent)
+        {
+            await Init();
+            Report report = (new Report
+            {
+                report_title = ReportTitle,
+                report_content = ReportContent,
+                date_time = DateTime.Now
+            });
 
+            await _database.InsertAsync(report);
+            return report;
+             
+        }
+
+
+        public async Task PrintAllReportsAsync()
+        {
+            await Init();
+
+            var reports = await _database.Table<Report>().ToListAsync();
+
+            foreach (var report in reports)
+            {
+                report.PrintReport();
+                Console.WriteLine(); // Add a newline for readability
+            }
+        }
 
 
 
