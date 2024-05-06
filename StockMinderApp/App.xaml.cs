@@ -6,14 +6,24 @@ public partial class App : Application
 	public static UserSession UserSession { get; } = new UserSession();
     public static ReportDatabase reportDatabase = new();
     public static UserDatabase userDatabase = new();
-	public App()
+
+    [Obsolete]
+    public App()
 	{
 		InitializeComponent();
-        App.ApplyGlobalStyles();
-        //MainPage = new Views.FlyoutTemplate();
-        MainPage = new NavigationPage(new Views.RegisterPage());
-	}
+        ApplyGlobalStyles();
+        SetupDatabase();
 
+        MainPage = new Views.FlyoutTemplate();
+    }
+
+
+    private void SetupDatabase()
+    {
+        userDatabase.ResetAndInitializeDatabase();
+    }
+
+    [Obsolete]
     private static void ApplyGlobalStyles()
     {
         var navigationStyle = new Style(typeof(NavigationPage))

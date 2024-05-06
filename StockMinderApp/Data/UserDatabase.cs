@@ -9,6 +9,10 @@ namespace StockMinderApp.Data
 		{
 		}
 
+
+
+
+
         SQLiteAsyncConnection _database;
         async Task Init()
         {
@@ -23,31 +27,48 @@ namespace StockMinderApp.Data
             var result = await _database.CreateTableAsync<User>();
         }
 
+        public async void ResetAndInitializeDatabase()
+        {
+            await Init();
+            await _database.DeleteAllAsync<User>();
+            await InsertUsersAsync(GenerateUsers());
+            await PrintAllUsers();
+        }
+
 
 
         private static List<User> GenerateUsers()
         {
             List<User> users = new List<User>();
+
+            // Generate 10 random users
+            for (int i = 0; i < 10; i++)
+            {
+                User user = new User
+                {
+                    employee_id = $"EMP{i + 1}",
+                    username = $"User{i + 1}",
+                    password = $"Password{i + 1}",
+                    email = $"user{i + 1}@example.com",
+                    department = $"Department{i + 1}"
+                };
+                users.Add(user);
+            }
+
+            // Generate a test user with all attributes set
+            User testUser = new User
+            {
+                employee_id = "test",
+                username = "test",
+                password = "test",
+                email = "test@example.com",
+                department = "TestDepartment"
+            };
+            users.Add(testUser);
+
             return users;
         }
 
-
-        private async Task InsertGeneratedReports()
-        {
-            List<User> users = GenerateUsers();
-            await Init();
-            await _database.InsertAllAsync(users);
-        }
-
-
-        private async Task<User> GetReportAsync(string username)
-        {
-            await Init();
-            return await _database
-                .Table<User>()
-                .Where(n => n.username == username)
-                .FirstOrDefaultAsync();
-        }
 
 
         public async Task<bool> IsEmployeeIdAlreadyExists(string EmployeeId)
@@ -83,6 +104,7 @@ namespace StockMinderApp.Data
         }
 
 
+
         public async Task<User> InsertUserAsync(string employeeid, string username, string password, string email, string department)
         {
             await Init();
@@ -99,6 +121,50 @@ namespace StockMinderApp.Data
             return user;
 
         }
+
+        public async Task<bool> InsertUsersAsync(List<User> users)
+        {
+            try
+            {
+                await Init();
+                await _database.InsertAllAsync(users);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                // Handle exception if insertion fails
+                Console.WriteLine($"Failed to insert users: {ex.Message}");
+                return false;
+            }
+        }
+
+        public async Task<bool> IsCorrectCredentials(string username, string password)
+        {
+            await Init();
+            var user = await _database.Table<User>()
+                                .Where(u => u.username == username && u.password == password)
+                                .FirstOrDefaultAsync();
+
+            return user != null;
+        }
+
+
+        public async Task PrintAllUsers()
+        {
+            await Init();
+
+            var users = await _database.Table<User>().ToListAsync();
+
+            foreach (var user in users)
+            {
+                Console.WriteLine($"Employee ID: {user.employee_id}");
+                Console.WriteLine($"Username: {user.username}");
+                Console.WriteLine($"Email: {user.email}");
+                Console.WriteLine($"Department: {user.department}");
+                Console.WriteLine();
+            }
+        }
+
     }
 }
 

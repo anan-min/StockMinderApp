@@ -5,9 +5,9 @@
              Title="LoginPage">
     <Grid BackgroundColor="white">
         <Grid.RowDefinitions>
-            <RowDefinition Height="80" />
+            <RowDefinition Height="70" />
+            <RowDefinition Height="6*" />
             <RowDefinition Height="2*" />
-            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Label Background="white" Grid.Row="0" HeightRequest="80" />
 
@@ -15,15 +15,17 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="80" />
 
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
 
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
 
-                <RowDefinition Height="*" />
+                <RowDefinition Height="auto" />
 
-                <RowDefinition Height="80" />
+                <RowDefinition Height="70" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
             </Grid.RowDefinitions>
 
             <Label  Text="Login"
@@ -42,8 +44,9 @@
                    Padding="0, 20, 0 , 0"/>
 
             <Entry  Grid.Row="2"
+                    x:Name="UsernameEntry"
                     Background="white"
-                    Margin="20, 0, 20, 0"/>
+                    Margin="20, 6, 20, 0"/>
 
 
             <Label Grid.Row="3"
@@ -54,17 +57,29 @@
                    Padding="0, 20, 0 ,0"/>
             
             <Entry  Grid.Row="4"
+                    x:Name="PasswordEntry"
                     Background="white"
-                    Margin="20, 0, 20, 0"/>
+                    Margin="20, 6, 20, 0"/>
 
 
-            <Button Grid.Row="8"
-                    Text="SUBMIT"
+            <Button Grid.Row="7"
+                    Text="LOGIN"
+                    Clicked="LoginButtonClicked"
                     FontSize="24"
                     FontAttributes="Bold"
                     TextColor="#5256fe"
                     BackgroundColor="white"
                     Margin="15,0,15,15"/>
+
+            <Label  Grid.Row="8"
+                    Padding="0, 0, 15, 0"
+                    TextColor="white"
+                    Text="Create new Account ?"
+                    HorizontalOptions="CenterAndExpand">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="CreateNewAccountCliked" />
+                </Label.GestureRecognizers>
+            </Label>
   
         </Grid>
 

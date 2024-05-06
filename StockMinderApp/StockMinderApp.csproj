@@ -59,9 +59,11 @@
 	<ItemGroup>
 	  <None Remove="Views\" />
 	  <None Remove="Data\" />
+	  <None Remove="Modules\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="Views\" />
 	  <Folder Include="Data\" />
+	  <Folder Include="Modules\" />
 	</ItemGroup>
 </Project>

@@ -1,4 +1,5 @@
 ﻿namespace StockMinderApp.Views;
+using StockMinderApp.Modules;
 
 public partial class RegisterPage : ContentPage
 {
@@ -6,6 +7,15 @@ public partial class RegisterPage : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    protected async override void OnAppearing()
+    {
+        base.OnAppearing();
+        if (App.UserSession.IsLoggedIn)
+        {
+            NavigationHelper.ChangeFlyoutDetails(new MainPageDetail());
+        }
+    }
 
     private async void SubmitButtonClicked(System.Object sender, System.EventArgs e)
     {

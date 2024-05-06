@@ -1,4 +1,5 @@
 ﻿namespace StockMinderApp.Views;
+using StockMinderApp.Modules;
 
 public partial class MainPageDetail : ContentPage
 {
@@ -6,6 +7,11 @@ public partial class MainPageDetail : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+    }
 
     async void Button_Clicked(System.Object sender, System.EventArgs e)
     {

@@ -1,4 +1,5 @@
 ﻿namespace StockMinderApp.Views;
+using StockMinderApp.Modules;
 
 public partial class NavbarPage : ContentPage
 {
@@ -6,6 +7,11 @@ public partial class NavbarPage : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+    }
 
     void CloseNavBar(System.Object sender, System.EventArgs e)
     {
@@ -18,61 +24,42 @@ public partial class NavbarPage : ContentPage
 
     void MainPageButtonClicked(System.Object sender, System.EventArgs e)
     {
-        if (App.UserSession.IsLoggedIn)
-        {
-            var navPage = App.Current.MainPage as FlyoutTemplate;
-            navPage.Detail = new NavigationPage(new Views.ProductsPage());
-        }
-        else
-        {
-            var navPage = App.Current.MainPage as FlyoutTemplate;
-            navPage.Detail = new NavigationPage(new Views.MainPageDetail());
-        }
+        NavigationHelper.ChangeFlyoutDetails(new Views.MainPageDetail());
     }
 
-    async void SearchItemButtonClicked(System.Object sender, System.EventArgs e)
+    void SearchItemButtonClicked(System.Object sender, System.EventArgs e)
     {
 
         if (App.UserSession.IsLoggedIn)
         {
-            var navPage = App.Current.MainPage as FlyoutTemplate;
-            navPage.Detail = new NavigationPage(new Views.ProductsPage());
-        } else
+            NavigationHelper.ChangeFlyoutDetails(new Views.ProductsPage());
+
+        }
+        else
         {
-            var navPage = App.Current.MainPage as FlyoutTemplate;
-            navPage.Detail = new NavigationPage(new Views.LoginPage());
+            NavigationHelper.ChangeFlyoutDetails(new Views.LoginPage());
         }
     }
 
     void RegisterButtonClicked(System.Object sender, System.EventArgs e)
     {
-        {
-            var navPage = App.Current.MainPage as FlyoutTemplate;
-            navPage.Detail = new NavigationPage(new Views.RegisterPage());
-        }
+        NavigationHelper.ChangeFlyoutDetails(new Views.RegisterPage());
     }
 
     void LoginButtonClicked(System.Object sender, System.EventArgs e)
     {
-        var navPage = App.Current.MainPage as FlyoutTemplate;
-        navPage.Detail = new NavigationPage(new Views.LoginPage());
+        NavigationHelper.ChangeFlyoutDetails(new Views.LoginPage());
     }
 
     void AddItemClicked(System.Object sender, System.EventArgs e)
     {
         if (App.UserSession.IsLoggedIn)
         {
-            var navPage = App.Current.MainPage as FlyoutTemplate;
-            navPage.Detail = new NavigationPage(new Views.AddProductPage())
-            {
-                BarBackground = Color.FromHex("#5256fe")
-            };
-            
+            NavigationHelper.ChangeFlyoutDetails(new Views.AddProductPage());
         }
         else
         {
-            var navPage = App.Current.MainPage as FlyoutTemplate;
-            navPage.Detail = new NavigationPage(new Views.LoginPage());
+            NavigationHelper.ChangeFlyoutDetails(new Views.LoginPage());
         }
     }
 
@@ -81,13 +68,11 @@ public partial class NavbarPage : ContentPage
     {
         if (App.UserSession.IsLoggedIn)
         {
-            var navPage = App.Current.MainPage as FlyoutTemplate;
-            navPage.Detail = new NavigationPage(new Views.ReportsPage());
+            NavigationHelper.ChangeFlyoutDetails(new Views.ReportsPage());
         }
         else
         {
-            var navPage = App.Current.MainPage as FlyoutTemplate;
-            navPage.Detail = new NavigationPage(new Views.LoginPage());
+            NavigationHelper.ChangeFlyoutDetails(new Views.LoginPage());
         }
     }
 
@@ -95,13 +80,11 @@ public partial class NavbarPage : ContentPage
     {
         if (App.UserSession.IsLoggedIn)
         {
-            var navPage = App.Current.MainPage as FlyoutTemplate;
-            navPage.Detail = new NavigationPage(new Views.SubmitReportPage());
+            NavigationHelper.ChangeFlyoutDetails(new Views.SubmitReportPage());
         }
         else
         {
-            var navPage = App.Current.MainPage as FlyoutTemplate;
-            navPage.Detail = new NavigationPage(new Views.LoginPage());
+            NavigationHelper.ChangeFlyoutDetails(new Views.LoginPage());
         }
     }
 
