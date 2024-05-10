@@ -6,6 +6,7 @@ public partial class App : Application
 	public static UserSession UserSession { get; } = new UserSession();
     public static ReportDatabase reportDatabase = new();
     public static UserDatabase userDatabase = new();
+    public static ProductDatabase productDatabase = new();
 
     [Obsolete]
     public App()

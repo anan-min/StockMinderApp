@@ -7,7 +7,7 @@
 
             <!-- ScrollView below the Label -->
             <ScrollView Grid.Row="1" Padding="20" BackgroundColor="#F2F2F2">
-                <CollectionView x:Name="productCollectionView">
+                <CollectionView x:Name="productCollectionView" SelectionChanged="OnProductSelected"  SelectionMode="Single">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
 
@@ -65,6 +65,8 @@
                                             <Label Text="{Binding stock_location}"
                                                    FontSize="9" />
                                         </HorizontalStackLayout>
+
+
                                 </VerticalStackLayout>
                             </HorizontalStackLayout>
                         </DataTemplate>

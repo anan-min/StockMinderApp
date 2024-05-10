@@ -1,5 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="StockMinderApp.Views.ProductPage"
              Title="ProductPage">
@@ -44,28 +43,31 @@
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
 
-                        <Label Text="Product ID: P-2023-SUPR-HDS-WDGTX5000"
+                        <Label Text="{Binding product_id, StringFormat='Product ID: {0}'}"
                                FontSize="12"
                                Grid.Row="0"/>
-                        <Label Text="Product Name: Super-Durable High-Speed"
+                        <Label Text="{Binding product_name, StringFormat='Product Name: {0}'}"
                                FontSize="12"
                                Grid.Row="1"/>
-                        <Label Text="Current Stock Level: 150 units"
+                        <Label Text="{Binding stock_level, StringFormat='Current Stock Level: {0} units'}"
+                               x:Name="stock_level_label"
                                FontSize="12"
                                Grid.Row="2"/>
-                        <Label Text="Stock location: A-12-B"
+                        <Label Text="{Binding stock_location, StringFormat='Stock Location: {0}'}"
                                FontSize="12"
                                Grid.Row="3"/>
 
 
 
 
-                        <HorizontalStackLayout VerticalOptions="End"
-                                               Grid.Row="4">
-                            <Button Text="-" HeightRequest="40"/>
-                            <Button Text="24" HeightRequest="40" Background="#DBDBF1" TextColor="Black" />
-                            <Button Text="+" HeightRequest="40"/>
-                        </HorizontalStackLayout>
+                        <StackLayout VerticalOptions="End"
+                                     Grid.Row="4"
+                                     Orientation="Horizontal">
+                            <Button Text="-" HeightRequest="40" Clicked="IncreaseStockClicked"/>
+                            <Button Text="{Binding stock_level}" x:Name="stock_level_display"
+                                    HeightRequest="40" Background="#DBDBF1" TextColor="Black" />
+                            <Button Text="+" HeightRequest="40" Clicked="DecreaseStockClicked"/>
+                        </StackLayout>
 
                  </Grid>
 

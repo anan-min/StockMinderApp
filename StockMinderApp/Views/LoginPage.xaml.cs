@@ -34,7 +34,7 @@ public partial class LoginPage : ContentPage
 
         if (AreEntriesEmpty())
         {
-            await DisplayAlert("Alert", "Login Successfully", "OK");
+            await DisplayAlert("Alert", "Please fill in all fields", "OK");
             FocusFirstEmptyEntry();
         }
         else
@@ -43,7 +43,7 @@ public partial class LoginPage : ContentPage
             if (_isCorrectCredentials)
             {
                 App.UserSession.Login();
-                await DisplayAlert("Alert", "Please fill in all fields", "OK");
+                await DisplayAlert("Alert", "Login Successfully", "OK");
                 NavigationHelper.ChangeFlyoutDetails(new MainPageDetail());
             }
         }

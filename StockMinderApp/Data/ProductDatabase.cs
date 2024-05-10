@@ -43,6 +43,13 @@ namespace StockMinderApp.Data
         }
 
 
+        public async Task<int> UpdateProductAsync(Product product)
+        {
+            await Init();
+            return await _database.UpdateAsync(product);
+        }
+
+
         private async Task InsertGeneratedProducts()
         {
             List<Product> Products = GenerateProducts();

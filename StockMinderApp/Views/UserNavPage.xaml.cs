@@ -66,7 +66,8 @@ public partial class UserNavPage : ContentPage
             var navPage = App.Current.MainPage as FlyoutTemplate;
             navPage.Detail = new NavigationPage(new Views.AddProductPage())
             {
-                BarBackground = Color.FromHex("#5256fe")
+                //BarBackground = Color.FromHex("#5256fe")
+                BarBackground = Color.FromRgb(0x52, 0x56, 0xFE)
             };
 
         }
