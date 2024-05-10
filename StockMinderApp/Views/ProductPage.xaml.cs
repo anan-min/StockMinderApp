@@ -11,21 +11,21 @@ public partial class ProductPage : ContentPage
 		BindingContext = product;
 	}
 
-    async Task<int> IncreaseStockClicked(System.Object sender, System.EventArgs e)
+    public async void IncreaseStockClicked(System.Object sender, System.EventArgs e)
     {
-        this.product.stock_level += 1;
+        product.stock_level += 1;
         UpdateButtonText();
-        return await UpdateStockLevel();
+        await UpdateStockLevel();
     }
 
-    async Task<int> DecreaseStockClicked(System.Object sender, System.EventArgs e)
+    public async void DecreaseStockClicked(System.Object sender, System.EventArgs e)
     {
-        if (this.product.stock_level > 0)
+        if (product.stock_level > 0)
         {
-            this.product.stock_level -= 1;
+            product.stock_level -= 1;
         }
         UpdateButtonText();
-        return await UpdateStockLevel();
+        await UpdateStockLevel();
     }
 
 

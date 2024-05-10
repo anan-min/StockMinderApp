@@ -22,6 +22,8 @@ public partial class App : Application
     private void SetupDatabase()
     {
         userDatabase.ResetAndInitializeDatabase();
+        productDatabase.ResetAndInitializeDatabase();
+        // do this for report database and product database
     }
 
     [Obsolete]

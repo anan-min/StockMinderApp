@@ -8,7 +8,7 @@ public partial class RegisterPage : ContentPage
 		InitializeComponent();
 	}
 
-    protected async override void OnAppearing()
+    protected override void OnAppearing()
     {
         base.OnAppearing();
         if (App.UserSession.IsLoggedIn)

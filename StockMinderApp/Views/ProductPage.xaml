@@ -63,10 +63,10 @@
                         <StackLayout VerticalOptions="End"
                                      Grid.Row="4"
                                      Orientation="Horizontal">
-                            <Button Text="-" HeightRequest="40" Clicked="IncreaseStockClicked"/>
+                            <Button Text="-" HeightRequest="40" Clicked="DecreaseStockClicked"/>
                             <Button Text="{Binding stock_level}" x:Name="stock_level_display"
                                     HeightRequest="40" Background="#DBDBF1" TextColor="Black" />
-                            <Button Text="+" HeightRequest="40" Clicked="DecreaseStockClicked"/>
+                            <Button Text="+" HeightRequest="40" Clicked="IncreaseStockClicked"/>
                         </StackLayout>
 
                  </Grid>

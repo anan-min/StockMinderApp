@@ -30,9 +30,25 @@ namespace StockMinderApp.Data
         public async void ResetAndInitializeDatabase()
         {
             await Init();
-            await _database.DeleteAllAsync<User>();
+            await ResetDatabaseAsync();
             await InsertUsersAsync(GenerateUsers());
             await PrintAllUsers();
+        }
+
+
+        public async Task<bool> ResetDatabaseAsync()
+        {
+            try
+            {
+                await Init();
+                await _database.DeleteAllAsync<User>();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Failed to delete all users: {ex.Message}");
+                return false;
+            }
         }
 
 

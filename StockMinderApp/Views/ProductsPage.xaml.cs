@@ -8,10 +8,28 @@ public partial class ProductsPage : ContentPage
 	public ProductsPage()
 	{
         InitializeComponent();
-        // Generate and bind products
-        List<Product> productList = ProductDatabase.GenerateDummyProducts();
-        ObservableCollection<Product> Products = new(productList);
-        productCollectionView.ItemsSource = Products;
+        fetchProducts();
+    }
+
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+        fetchProducts();
+    }
+
+
+    private async void fetchProducts()
+    {
+        try
+        {
+            IEnumerable<Product> productsEnumerable = await App.productDatabase.GetAllProductsAsync();
+            ObservableCollection<Product> products = new(productsEnumerable);
+            productCollectionView.ItemsSource = products;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error fetching products: {ex.Message}");
+        }
     }
 
     void OnProductSelected(System.Object sender, Microsoft.Maui.Controls.SelectionChangedEventArgs e)
@@ -26,6 +44,8 @@ public partial class ProductsPage : ContentPage
             // Deselect the item
             ((CollectionView)sender).SelectedItem = null;
     }
+
+
 
 
 

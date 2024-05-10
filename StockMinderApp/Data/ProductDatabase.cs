@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using SQLite;
 
 namespace StockMinderApp.Data
@@ -21,41 +22,75 @@ namespace StockMinderApp.Data
                 );
 
             var result = await _database.CreateTableAsync<Product>();
+            Console.WriteLine(DataBaseConstants.DatabasePath);
         }
 
 
-
-        private static List<Product> GenerateProducts()
+        public async void ResetAndInitializeDatabase()
         {
-            List<Product> Products = new List<Product>();
+            await Init();
+            await ResetDatabaseAsync();
+            await InsertProductsAsync(GenerateProducts());
+        }
 
-            //for (int i = 0; i < 10; i++)
-            //{
-            //    Products.Add(new Product
-            //    {
-            //        Product_title = $"Product {i + 1}",
-            //        Product_content = $"Content for Product {i + 1}",
-            //        date_time = DateTime.Now.AddDays(-i)
-            //    });
-            //}
 
-            return Products;
+        public async Task<bool> ResetDatabaseAsync()
+        {
+            try
+            {
+                await Init();
+                await _database.DeleteAllAsync<Product>();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Failed to delete all products: {ex.Message}");
+                return false;
+            }
         }
 
 
         public async Task<int> UpdateProductAsync(Product product)
         {
             await Init();
-            return await _database.UpdateAsync(product);
+            int rowsAffected = await _database.UpdateAsync(product);
+
+            if (rowsAffected > 0)
+            {
+                Console.WriteLine("Product updated successfully.");
+            }
+            else
+            {
+                Console.WriteLine("Product update failed.");
+            }
+
+            return rowsAffected;
         }
 
 
-        private async Task InsertGeneratedProducts()
+        private async Task<bool> InsertProductsAsync(List<Product> products)
         {
-            List<Product> Products = GenerateProducts();
-            await Init();
-            await _database.InsertAllAsync(Products);
+            try
+            {
+                await Init();
+                await _database.InsertAllAsync(products);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Failed to insert users: {ex.Message}");
+                return false;
+            }
         }
+
+
+        public async Task<ObservableCollection<Product>> GetAllProductsAsync()
+        {
+            await Init();
+            var products = await _database.Table<Product>().ToListAsync();
+            return new ObservableCollection<Product>(products);
+        }
+
 
 
         private async Task<Product> GetProductAsync(string product_id)
@@ -69,7 +104,7 @@ namespace StockMinderApp.Data
         }
 
 
-        public static List<Product> GenerateDummyProducts()
+        public static List<Product> GenerateProducts()
         {
             List<Product> products = new List<Product>();
 
@@ -97,6 +132,27 @@ namespace StockMinderApp.Data
 
             return products;
         }
+
+
+
+        public async Task PrintAllProducts()
+        {
+            await Init();
+
+            var products = await _database.Table<Product>().ToListAsync();
+
+            foreach (var product in products)
+            {
+                Console.WriteLine($"Product ID: {product.product_id}");
+                Console.WriteLine($"Product Name: {product.product_name}");
+                Console.WriteLine($"Description: {product.product_description}");
+                Console.WriteLine($"Stock Level: {product.stock_level}");
+                Console.WriteLine($"Stock Location: {product.stock_location}");
+
+                Console.WriteLine();
+            }
+        }
+
 
 
     }
