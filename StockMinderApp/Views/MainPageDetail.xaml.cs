@@ -13,11 +13,17 @@ public partial class MainPageDetail : ContentPage
         base.OnAppearing();
     }
 
-    async void Button_Clicked(System.Object sender, System.EventArgs e)
+    void Button_Clicked(System.Object sender, System.EventArgs e)
     {
-		if (!App.UserSession.IsLoggedIn)
-		{
-			var result = await Application.Current.MainPage.DisplayAlert("Error", "user is not logged in", "ok", "cancle");
-		}
+        if (App.UserSession.IsLoggedIn)
+        {
+            NavigationHelper.ChangeFlyoutDetails(new Views.ProductsPage());
+
+        }
+        else
+        {
+            App.previousPage = new ProductsPage();
+            NavigationHelper.ChangeFlyoutDetails(new Views.LoginPage());
+        }
     }
 }

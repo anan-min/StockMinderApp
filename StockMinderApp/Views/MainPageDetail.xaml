@@ -20,7 +20,10 @@
             <Frame Grid.Row="0" Grid.Column="0"
                    Background="#5256fe"
                    Margin="25"
-                   />
+                   >
+                <Button Text="button" Clicked="Button_Clicked"></Button>
+
+            </Frame>
 
             <Frame Grid.Row="0" Grid.Column="1"
                    Background="#5256fe"
