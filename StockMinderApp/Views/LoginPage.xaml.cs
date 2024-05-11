@@ -44,18 +44,7 @@ public partial class LoginPage : ContentPage
             {
                 App.UserSession.Login();
                 await DisplayAlert("Alert", "Login Successfully", "OK");
-
                 NavigateBackToPreviousPage();
-                //if (App.previousPage is null)
-                //{
-                //    NavigationHelper.ChangeFlyoutDetails(new MainPageDetail());
-                //}
-                //else
-                //{
-                //    NavigationHelper.ChangeFlyoutDetails(App.previousPage);
-                //    App.previousPage = null;
-
-                //}
 
             }
         }

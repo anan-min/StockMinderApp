@@ -9,19 +9,25 @@
                HorizontalOptions="StartAndExpand"
                FontSize="24"
                FontAttributes="Bold"
-               TextColor="#5256fe"/>
+               TextColor="#5256fe"
+               Margin="7"/>
+
         <Image      HeightRequest="250"
                     WidthRequest="336"
                     BackgroundColor="orange"
                     Source="dotnet_bot.png"
                     Aspect="AspectFill"
+                    x:Name="ProductImage"
                     Margin="8"/>
+
         <Button Text="Add Image"
                 FontAttributes="Bold"
                 FontSize="16"
                 Margin="7"
                 CornerRadius="0"
-                BackgroundColor="#5256fe"/>
+                BackgroundColor="#5256fe"
+                Clicked="btnCameraRoll_Clicked"
+                />
 
         <Entry HeightRequest="35" Margin="7" BackgroundColor="white"
                Text="Add Product id ... "/>
@@ -33,11 +39,13 @@
                Text="Add Stock Location ... "/>
         <Entry HeightRequest="65" Margin="7" BackgroundColor="white"
                Text="Add Product description ... "/>
+
         <Button HeightRequest="65" Margin="7"
                 Text="SUBMIT PRODUCT"
                 FontSize="18"
                 FontAttributes="Bold"
                 CornerRadius="0"
-                BackgroundColor="#5256fe"/>
+                BackgroundColor="#5256fe"
+                />
     </VerticalStackLayout>
 </ContentPage>

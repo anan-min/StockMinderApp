@@ -61,4 +61,6 @@ public partial class SubmitReportPage : ContentPage
     {
         return string.IsNullOrWhiteSpace(ReportTitleEntry.Text) || string.IsNullOrWhiteSpace(ReportContentEntry.Text);
     }
+    
+
 }
