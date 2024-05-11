@@ -19,7 +19,7 @@
                                 <Image  HeightRequest="80"
                                         WidthRequest="80"
                                         BackgroundColor="orange"
-                                        Source="dotnet_bot.png"
+                                        Source="{Binding image_path}"
                                         Aspect="AspectFill"
                                         Margin="20,20,0,20"/>
 

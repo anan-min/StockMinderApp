@@ -108,6 +108,8 @@ namespace StockMinderApp.Data
         {
             List<Product> products = new List<Product>();
 
+            string[] imagePaths = { "img1.jpeg", "img2.jpeg", "img3.jpeg" };
+
             for (int i = 0; i < 10; i++)
             {
                 string productId = $"P-{DateTime.Now.Year}-{"0000" + i}-{"SUPR"}-{"HDS"}-{"WDGTX5000"}";
@@ -115,7 +117,7 @@ namespace StockMinderApp.Data
                 int stockLevel = new Random().Next(1, 1000);
                 string stockLocation = $"A-{i + 1}-B";
                 string productDescription = $"Description for Product {i + 1}";
-                string imagePath = $"path_to_image_{i}.png";
+                string imagePath = imagePaths[i % imagePaths.Length];
 
                 Product product = new Product
                 {
@@ -132,6 +134,7 @@ namespace StockMinderApp.Data
 
             return products;
         }
+
 
 
 
