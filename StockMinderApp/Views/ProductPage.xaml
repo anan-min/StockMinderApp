@@ -20,7 +20,7 @@
             <Label Grid.Row="0" BackgroundColor="white"/>
             <Image  Grid.Row="0"
                     BackgroundColor="orange"
-                    Source="dotnet_bot.png"
+                    Source="{Binding image_path}"
                     Aspect="AspectFill"
                     Margin="10"/>
 

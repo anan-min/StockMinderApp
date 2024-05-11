@@ -47,6 +47,12 @@ public partial class LoginPage : ContentPage
                 NavigateBackToPreviousPage();
 
             }
+            else
+            {
+                await DisplayAlert("Alert", "Incorrect username or password", "OK");
+                UsernameEntry.Text = "";
+                PasswordEntry.Text = "";
+            }
         }
     }
 

@@ -34,6 +34,41 @@ namespace StockMinderApp.Data
         }
 
 
+        public async Task<Product> InsertProductAsync(string product_id, string product_name, string product_description, int stock_level, string stock_location, string image_path)
+        {
+            await Init();
+
+            if (image_path is null )
+            {
+                image_path = "product.jpeg";
+            }
+
+            Product product = (new Product
+            {
+                product_id = product_id,
+                product_name = product_name,
+                product_description = product_description,
+                stock_level = stock_level,
+                stock_location = stock_location,
+                image_path = image_path,
+            });
+
+            await _database.InsertAsync(product);
+            return product;
+
+        }
+
+        public async Task<bool> isProductIdExisted(String ProductID)
+        {
+            await Init();
+            var product = await _database.Table<Product>()
+                              .Where(u => u.product_id == ProductID)
+                              .FirstOrDefaultAsync();
+
+            return product != null;
+        }
+
+
         public async Task<bool> ResetDatabaseAsync()
         {
             try

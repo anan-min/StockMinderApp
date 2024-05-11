@@ -128,4 +128,100 @@ public partial class AddProductPage : ContentPage
             }
         }
     }
+
+    private async void SubmitProductClicked(System.Object sender, System.EventArgs e)
+    {
+        // all form need to be filled
+        // check of the product id if it already exist 
+        // image holder will be used if image is not upload
+        if (AreEntriesEmpty())
+        {
+            await DisplayAlert("Alert", "Please fill in all fields", "OK");
+            FocusFirstEmptyEntry();
+        }
+        else
+        {
+            bool isProductIdExisted = await App.productDatabase.isProductIdExisted(ProductIdEntry.Text);
+
+            if (isProductIdExisted)
+            {
+                await DisplayAlert("Alert", "Product Id is already exist", "OK");
+                ClearAndFocusEntry(ProductIdEntry);
+            }
+            else if(!TryParseStockLevel(out _)){
+                await DisplayAlert("Alert", "Stock Level must be a valid number", "OK");
+                StockLevelEntry.Text = "";
+                StockLevelEntry.Focus();
+            }
+            else
+            {
+                await DisplayAlert("Alert", "Product Submitted", "OK");
+
+                await App.productDatabase.InsertProductAsync(
+                     ProductIdEntry.Text,
+                     ProductNameEntry.Text,
+                     ProductDescriptionEntry.Text,
+                     int.Parse(StockLevelEntry.Text),
+                     StockLocationEntry.Text,
+                     _photoPath
+                 );
+                await Navigation.PushAsync(new ProductsPage());
+            }
+
+        }
+
+    }
+
+
+    private bool TryParseStockLevel(out int stockLevel)
+    {
+        return int.TryParse(StockLevelEntry.Text, out stockLevel);
+    }
+
+
+
+
+
+    private void FocusFirstEmptyEntry()
+    {
+        if (string.IsNullOrWhiteSpace(ProductIdEntry.Text))
+        {
+            ProductIdEntry.Focus();
+        }
+        else if (string.IsNullOrWhiteSpace(ProductNameEntry.Text))
+        {
+            ProductNameEntry.Focus();
+        }
+        else if (string.IsNullOrWhiteSpace(StockLevelEntry.Text))
+        {
+            StockLevelEntry.Focus();
+        }
+        else if (string.IsNullOrWhiteSpace(StockLocationEntry.Text))
+        {
+            StockLocationEntry.Focus();
+        }
+        else if (string.IsNullOrWhiteSpace(ProductDescriptionEntry.Text))
+        {
+            ProductDescriptionEntry.Focus();
+        }
+
+    }
+
+
+    private bool AreEntriesEmpty()
+    {
+        return string.IsNullOrWhiteSpace(ProductIdEntry.Text)
+                || string.IsNullOrWhiteSpace(ProductNameEntry.Text)
+                || string.IsNullOrWhiteSpace(StockLevelEntry.Text)
+                || string.IsNullOrWhiteSpace(StockLocationEntry.Text)
+                || string.IsNullOrWhiteSpace(ProductDescriptionEntry.Text);
+    }
+
+
+    private void ClearAndFocusEntry(Entry entry)
+    {
+        entry.Text = "";
+        entry.Focus();
+    }
+
 }

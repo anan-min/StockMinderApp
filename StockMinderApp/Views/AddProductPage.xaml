@@ -15,7 +15,7 @@
         <Image      HeightRequest="250"
                     WidthRequest="336"
                     BackgroundColor="orange"
-                    Source="dotnet_bot.png"
+                    Source="product.jpeg"
                     Aspect="AspectFill"
                     x:Name="ProductImage"
                     Margin="8"/>
@@ -30,15 +30,20 @@
                 />
 
         <Entry HeightRequest="35" Margin="7" BackgroundColor="white"
-               Text="Add Product id ... "/>
+               Placeholder="Add Product id ... "
+               x:Name="ProductIdEntry"/>
         <Entry HeightRequest="35" Margin="7" BackgroundColor="white"
-               Text="Add Product Name ... "/>
+               Placeholder="Add Product Name ... "
+               x:Name="ProductNameEntry"/>
         <Entry HeightRequest="35" Margin="7" BackgroundColor="white"
-               Text="Add current Stock Level ... "/>
+               Placeholder="Add current Stock Level ... "
+               x:Name="StockLevelEntry"/>
         <Entry HeightRequest="35" Margin="7" BackgroundColor="white"
-               Text="Add Stock Location ... "/>
+               Placeholder="Add Stock Location ... "
+               x:Name="StockLocationEntry"/>
         <Entry HeightRequest="65" Margin="7" BackgroundColor="white"
-               Text="Add Product description ... "/>
+               Placeholder="Add Product description ... "
+               x:Name="ProductDescriptionEntry"/>
 
         <Button HeightRequest="65" Margin="7"
                 Text="SUBMIT PRODUCT"
@@ -46,6 +51,7 @@
                 FontAttributes="Bold"
                 CornerRadius="0"
                 BackgroundColor="#5256fe"
+                Clicked="SubmitProductClicked"
                 />
     </VerticalStackLayout>
 </ContentPage>

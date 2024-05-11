@@ -60,10 +60,16 @@
 	  <None Remove="Views\" />
 	  <None Remove="Data\" />
 	  <None Remove="Modules\" />
+	  <None Remove="Resources\Images\img2.jpeg" />
+	  <None Remove="Resources\Images\img3.jpeg" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="Views\" />
 	  <Folder Include="Data\" />
 	  <Folder Include="Modules\" />
+	</ItemGroup>
+	<ItemGroup>
+	  <BundleResource Include="Resources\Images\img2.jpeg" />
+	  <BundleResource Include="Resources\Images\img3.jpeg" />
 	</ItemGroup>
 </Project>
