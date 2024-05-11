@@ -7,6 +7,7 @@ public partial class App : Application
     public static ReportDatabase reportDatabase = new();
     public static UserDatabase userDatabase = new();
     public static ProductDatabase productDatabase = new();
+    public static ContentPage previousPage = null;
 
     [Obsolete]
     public App()

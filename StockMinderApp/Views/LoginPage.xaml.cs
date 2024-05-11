@@ -44,11 +44,38 @@ public partial class LoginPage : ContentPage
             {
                 App.UserSession.Login();
                 await DisplayAlert("Alert", "Login Successfully", "OK");
-                //NavigationHelper.ChangeFlyoutDetails(new MainPageDetail());
-                await Navigation.PopAsync();
+
+                NavigateBackToPreviousPage();
+                //if (App.previousPage is null)
+                //{
+                //    NavigationHelper.ChangeFlyoutDetails(new MainPageDetail());
+                //}
+                //else
+                //{
+                //    NavigationHelper.ChangeFlyoutDetails(App.previousPage);
+                //    App.previousPage = null;
+
+                //}
+
             }
         }
     }
+
+
+    private void NavigateBackToPreviousPage()
+    {
+        if (App.previousPage is null)
+        {
+            NavigationHelper.ChangeFlyoutDetails(new MainPageDetail());
+        }
+        else
+        {
+            NavigationHelper.ChangeFlyoutDetails(App.previousPage);
+            App.previousPage = null;
+        }
+    }
+
+
 
     private void FocusFirstEmptyEntry()
     {

@@ -17,7 +17,6 @@ public partial class NavbarPage : ContentPage
     {
         if (Application.Current.MainPage is FlyoutPage flyoutPage)
         {
-            // Close the flyout
             flyoutPage.IsPresented = false;
         }
     }
@@ -37,6 +36,7 @@ public partial class NavbarPage : ContentPage
         }
         else
         {
+            App.previousPage = new ProductsPage();
             NavigationHelper.ChangeFlyoutDetails(new Views.LoginPage());
         }
     }
@@ -59,6 +59,7 @@ public partial class NavbarPage : ContentPage
         }
         else
         {
+            App.previousPage = new AddProductPage();
             NavigationHelper.ChangeFlyoutDetails(new Views.LoginPage());
         }
     }
@@ -68,11 +69,12 @@ public partial class NavbarPage : ContentPage
     {
         if (App.UserSession.IsLoggedIn)
         {
-            NavigationHelper.ChangeFlyoutDetails(new Views.ReportsPage());
+            NavigationHelper.ChangeFlyoutDetails(new ReportsPage());
         }
         else
         {
-            NavigationHelper.ChangeFlyoutDetails(new Views.LoginPage());
+            App.previousPage = new ReportsPage();
+            NavigationHelper.ChangeFlyoutDetails(new LoginPage());
         }
     }
 
@@ -84,6 +86,7 @@ public partial class NavbarPage : ContentPage
         }
         else
         {
+            App.previousPage = new SubmitReportPage();
             NavigationHelper.ChangeFlyoutDetails(new Views.LoginPage());
         }
     }
