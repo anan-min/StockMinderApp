@@ -16,7 +16,7 @@
                 <CollectionView x:Name="reportCollectionView">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <VerticalStackLayout HeightRequest="120"
+                            <VerticalStackLayout 
                                                  WidthRequest="320"
                                                  BackgroundColor="white"
                                                  Margin="20">
@@ -25,7 +25,7 @@
                                        FontAttributes="Bold"
                                        Padding="10, 10, 0, 10"
                                        />
-                                <Label Text="This report provides an overview of the current stock status for all products in the inventory. It includes the total number of products, the total stock value, and a list of the top selling products. The report also highlights any products with low stock levels that may require attention."
+                                <Label Text="{Binding report_content}"
                                        FontSize="8" Padding="10"/>
                                 <Label Text="{Binding date_time}"
                                        FontSize="6" Padding="10"/>

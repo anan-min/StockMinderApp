@@ -11,8 +11,6 @@ namespace StockMinderApp.Data
 
 
 
-
-
         SQLiteAsyncConnection _database;
         async Task Init()
         {

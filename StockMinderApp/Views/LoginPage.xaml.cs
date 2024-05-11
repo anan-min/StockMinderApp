@@ -44,7 +44,8 @@ public partial class LoginPage : ContentPage
             {
                 App.UserSession.Login();
                 await DisplayAlert("Alert", "Login Successfully", "OK");
-                NavigationHelper.ChangeFlyoutDetails(new MainPageDetail());
+                //NavigationHelper.ChangeFlyoutDetails(new MainPageDetail());
+                await Navigation.PopAsync();
             }
         }
     }

@@ -20,13 +20,30 @@ public partial class SubmitReportPage : ContentPage
             //create new report
             string reportTitle = ReportTitleEntry.Text;
             string reportContent = ReportContentEntry.Text;
-            await App.reportDatabase.InsertReportAsync(reportTitle, reportContent);
-            await App.reportDatabase.PrintAllReportsAsync();
+            await InsertReportToDataBase(reportTitle, reportContent);
+            await DisplayAlert("Alert", "Report Submitted", "OK");
+
+            await Navigation.PushAsync(new ReportsPage());
         }
 
     }
 
-	private void FocusFirstEmptyEntry()
+
+    private async Task InsertReportToDataBase(string reportTitle, string reportContent)
+    {
+        try
+        {
+            await App.reportDatabase.InsertReportAsync(reportTitle, reportContent);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Failed to insert report: {ex.Message}");
+        }
+    }
+
+
+
+    private void FocusFirstEmptyEntry()
 	{
         if (string.IsNullOrWhiteSpace(ReportTitleEntry.Text))
         {

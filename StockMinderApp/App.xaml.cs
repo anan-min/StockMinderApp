@@ -23,7 +23,7 @@ public partial class App : Application
     {
         userDatabase.ResetAndInitializeDatabase();
         productDatabase.ResetAndInitializeDatabase();
-        // do this for report database and product database
+        reportDatabase.ResetAndInitializeDatabase();
     }
 
     [Obsolete]
