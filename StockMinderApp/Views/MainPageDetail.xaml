@@ -3,10 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="StockMinderApp.Views.MainPageDetail"
              Title="MainPage">
-    <Grid BackgroundColor="#F2F2F2">
+    <Grid BackgroundColor="#F2F2F2" Padding="0,40,0,40">
 
 
-        <Grid Background="#F2F2F2" Grid.Row="1" Margin="30, 50">
+        <Grid Background="#F2F2F2" Grid.Row="1" Margin="30, 60">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
@@ -17,40 +17,135 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Frame Grid.Row="0" Grid.Column="0"
+
+            <StackLayout Grid.Row="0" Grid.Column="0">
+                <Frame
                    Background="#5256fe"
-                   Margin="25"
+                   HeightRequest="100"
+                   WidthRequest="100"
+                   CornerRadius="15"
                    >
-                <Button Text="button" Clicked="Button_Clicked"></Button>
-
-            </Frame>
-
-            <Frame Grid.Row="0" Grid.Column="1"
+                    <Image Source="add.svg">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="AddProductTapped"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Frame>
+                <Label Padding="10"
+                       Text="Add product"
+                       HorizontalOptions="Center"
+                       TextColor="#5256fe"
+                       FontAttributes="Bold"
+                       FontSize="16"/>
+            </StackLayout>
+          
+            <StackLayout Grid.Row="0" Grid.Column="1">
+                <Frame
                    Background="#5256fe"
-                   Margin="25"
-                   />
+                   HeightRequest="100"
+                   WidthRequest="100"
+                   CornerRadius="15"
+                   >
+                    <Image Source="search.svg">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ProductsTapped"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Frame>
+                <Label Padding="10"
+                       Text="Search product"
+                       HorizontalOptions="Center"
+                       TextColor="#5256fe"
+                       FontAttributes="Bold"
+                       FontSize="16"/>
+            </StackLayout>
 
-            <Frame Grid.Row="1" Grid.Column="0"
+            <StackLayout Grid.Row="1" Grid.Column="0">
+                <Frame
                    Background="#5256fe"
-                   Margin="25"
-                   />
+                   HeightRequest="100"
+                   WidthRequest="100"
+                   CornerRadius="15"
+                   >
+                    <Image Source="auth.svg">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Frame>
+                <Label Padding="10"
+                       Text="Login"
+                       HorizontalOptions="Center"
+                       TextColor="#5256fe"
+                       FontAttributes="Bold"
+                       FontSize="16"/>
+            </StackLayout>
 
-            <Frame Grid.Row="1" Grid.Column="1"
+
+            <StackLayout Grid.Row="1" Grid.Column="1">
+                <Frame
                    Background="#5256fe"
-                   Margin="25"
-                   />
+                   HeightRequest="100"
+                   WidthRequest="100"
+                   CornerRadius="15"
+                   >
+                    <Image Source="user.svg">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Frame>
+                <Label Padding="10"
+                       Text="Register"
+                       HorizontalOptions="Center"
+                       TextColor="#5256fe"
+                       FontAttributes="Bold"
+                       FontSize="16"/>
+            </StackLayout>
 
-            <Frame Grid.Row="2" Grid.Column="0"
+
+            <StackLayout Grid.Row="2" Grid.Column="0">
+                <Frame
                    Background="#5256fe"
-                   Margin="25"
-                   />
+                   HeightRequest="100"
+                   WidthRequest="100"
+                   CornerRadius="15"
+                   >
+                    <Image Source="reports.svg">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Frame>
+                <Label Padding="10"
+                       Text="Submit Report"
+                       HorizontalOptions="Center"
+                       TextColor="#5256fe"
+                       FontAttributes="Bold"
+                       FontSize="16"/>
+            </StackLayout>
 
-            <Frame Grid.Row="2" Grid.Column="1"
+
+            <StackLayout Grid.Row="2" Grid.Column="1">
+                <Frame
                    Background="#5256fe"
-                   Margin="25"
-                   />
-
+                   HeightRequest="100"
+                   WidthRequest="100"
+                   CornerRadius="15"
+                   >
+                    <Image Source="reports.svg">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Frame>
+                <Label Padding="10"
+                       Text="View reports"
+                       HorizontalOptions="Center"
+                       TextColor="#5256fe"
+                       FontAttributes="Bold"
+                       FontSize="16"/>
+            </StackLayout>
         </Grid>
-
     </Grid>
 </ContentPage>

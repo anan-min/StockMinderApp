@@ -62,6 +62,12 @@
 	  <None Remove="Modules\" />
 	  <None Remove="Resources\Images\img2.jpeg" />
 	  <None Remove="Resources\Images\img3.jpeg" />
+	  <None Remove="Resources\Images\Submit.svg" />
+	  <None Remove="Resources\Images\submit.svg" />
+	  <None Remove="Resources\Images\auth.svg" />
+	  <None Remove="Resources\Images\add.svg" />
+	  <None Remove="Resources\Images\edit.svg" />
+	  <None Remove="Resources\Images\search.svg" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="Views\" />
@@ -71,5 +77,10 @@
 	<ItemGroup>
 	  <BundleResource Include="Resources\Images\img2.jpeg" />
 	  <BundleResource Include="Resources\Images\img3.jpeg" />
+	  <BundleResource Include="Resources\Images\submit.svg" />
+	  <BundleResource Include="Resources\Images\auth.svg" />
+	  <BundleResource Include="Resources\Images\add.svg" />
+	  <BundleResource Include="Resources\Images\edit.svg" />
+	  <BundleResource Include="Resources\Images\search.svg" />
 	</ItemGroup>
 </Project>
