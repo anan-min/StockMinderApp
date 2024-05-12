@@ -22,7 +22,8 @@ public partial class LoginPage : ContentPage
 
     void CreateNewAccountCliked(System.Object sender, Microsoft.Maui.Controls.TappedEventArgs e)
     {
-        Navigation.PushAsync(new RegisterPage());
+        NavigationHelper.ChangeFlyoutDetails(new Views.RegisterPage());
+
     }
 
     private async void LoginButtonClicked(System.Object sender, System.EventArgs e)
