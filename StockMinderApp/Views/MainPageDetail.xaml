@@ -46,7 +46,7 @@
                    WidthRequest="100"
                    CornerRadius="15"
                    >
-                    <Image Source="search.svg">
+                    <Image Source="search.svg" WidthRequest="80" HeightRequest="80">
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer Tapped="ProductsTapped"/>
                         </Image.GestureRecognizers>
@@ -69,7 +69,7 @@
                    >
                     <Image Source="auth.svg">
                         <Image.GestureRecognizers>
-                            <TapGestureRecognizer/>
+                            <TapGestureRecognizer Tapped="LoginTapped"/>
                         </Image.GestureRecognizers>
                     </Image>
                 </Frame>
@@ -82,16 +82,16 @@
             </StackLayout>
 
 
-            <StackLayout Grid.Row="1" Grid.Column="1">
+            <StackLayout Grid.Row="1 " Grid.Column="1">
                 <Frame
                    Background="#5256fe"
                    HeightRequest="100"
                    WidthRequest="100"
                    CornerRadius="15"
                    >
-                    <Image Source="user.svg">
+                    <Image Source="regist.svg">
                         <Image.GestureRecognizers>
-                            <TapGestureRecognizer/>
+                            <TapGestureRecognizer Tapped="RegisterTapped"/>
                         </Image.GestureRecognizers>
                     </Image>
                 </Frame>
@@ -111,9 +111,9 @@
                    WidthRequest="100"
                    CornerRadius="15"
                    >
-                    <Image Source="reports.svg">
+                    <Image Source="view.svg">
                         <Image.GestureRecognizers>
-                            <TapGestureRecognizer/>
+                            <TapGestureRecognizer Tapped="SubmitReportTapped"/>
                         </Image.GestureRecognizers>
                     </Image>
                 </Frame>
@@ -135,7 +135,7 @@
                    >
                     <Image Source="reports.svg">
                         <Image.GestureRecognizers>
-                            <TapGestureRecognizer/>
+                            <TapGestureRecognizer Tapped="ReportsTapped"/>
                         </Image.GestureRecognizers>
                     </Image>
                 </Frame>

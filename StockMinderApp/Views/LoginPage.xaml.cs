@@ -22,8 +22,6 @@ public partial class LoginPage : ContentPage
 
     void CreateNewAccountCliked(System.Object sender, Microsoft.Maui.Controls.TappedEventArgs e)
     {
-        var navPage = App.Current.MainPage as FlyoutTemplate;
-        navPage.Detail = new NavigationPage(new Views.MainPageDetail());
         Navigation.PushAsync(new RegisterPage());
     }
 
