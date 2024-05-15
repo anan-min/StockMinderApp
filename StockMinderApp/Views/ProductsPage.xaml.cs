@@ -18,6 +18,11 @@ public partial class ProductsPage : ContentPage
     }
 
 
+    //private List<Product> SearchProduct()
+    //{
+    //    App.productDatabase.
+    //}
+
     private async void fetchProducts()
     {
         try
@@ -45,6 +50,25 @@ public partial class ProductsPage : ContentPage
             ((CollectionView)sender).SelectedItem = null;
     }
 
+    void SearchButonClicked(System.Object sender, System.EventArgs e)
+    {
+        SearchProductAsync();
+    }
+
+
+    private async void SearchProductAsync()
+    {
+        try
+        {
+            IEnumerable<Product> productsEnumerable = await App.productDatabase.SearchProducts(SearchTermEntry.Text);
+            ObservableCollection<Product> products = new(productsEnumerable);
+            productCollectionView.ItemsSource = products;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error fetching products: {ex.Message}");
+        }
+    }
 
 
 

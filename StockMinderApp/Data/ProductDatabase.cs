@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 using SQLite;
 
 namespace StockMinderApp.Data
@@ -23,6 +24,21 @@ namespace StockMinderApp.Data
 
             var result = await _database.CreateTableAsync<Product>();
             Console.WriteLine(DataBaseConstants.DatabasePath);
+        }
+
+
+        public async Task<ObservableCollection<Product>> SearchProducts(String searchTerm)
+
+        {
+            await Init();
+            var products = await _database.Table<Product>()
+                                .Where(u => u.product_id.Contains(searchTerm) ||
+                                            u.product_name.Contains(searchTerm) ||
+                                            u.product_description.Contains(searchTerm) ||
+                                            u.stock_location.Contains(searchTerm))
+                                .ToListAsync();
+
+            return new ObservableCollection<Product>(products);
         }
 
 
