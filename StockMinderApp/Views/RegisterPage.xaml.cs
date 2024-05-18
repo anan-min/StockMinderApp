@@ -51,6 +51,7 @@ public partial class RegisterPage : ContentPage
             {
                 await DisplayAlert("Alert", "Register Successfully", "OK");
                 await App.userDatabase.InsertUserAsync(employee_id, username, password, email, department);
+                NavigationHelper.ChangeFlyoutDetails(new Views.MainPageDetail());
                 App.UserSession.Login();
             }
 

@@ -20,13 +20,6 @@ public partial class AddProductPage : ContentPage
                 var photo = await MediaPicker.Default.PickPhotoAsync();
                 _photoPath = await LoadPhotoAsync(photo); // Store the path in _photoPath
 
-                Console.WriteLine(_photoPath);
-                Console.WriteLine(_photoPath);
-                Console.WriteLine(_photoPath);
-                Console.WriteLine(_photoPath);
-                Console.WriteLine(_photoPath);
-                Console.WriteLine(_photoPath);
-
                 if (!string.IsNullOrEmpty(_photoPath))
                 {
                     string nmFile = Path.GetFileName(_photoPath);

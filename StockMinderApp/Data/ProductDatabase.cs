@@ -23,7 +23,6 @@ namespace StockMinderApp.Data
                 );
 
             var result = await _database.CreateTableAsync<Product>();
-            Console.WriteLine(DataBaseConstants.DatabasePath);
         }
 
 
